@@ -1,0 +1,317 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root{
+	--background-top:#041232;
+	--background-top-lighter:#071b4b;
+  --background-bottom:#010817;
+  --background-bottom-lighter:#1d283a;
+	--background:linear-gradient(180deg, var(--background-top), var(--background-bottom));
+  --primary:#e2e7ef;
+  --primary-darker:#c6cbd2;
+	--primary-darkest:#abafb5;
+  --secondary:#7f8ea3;
+	--secondary-darker:#52525B;
+	--secondary-darkest:#3F3F46;
+	--success:#D1F4E0;
+	--success-darker:#45D483;
+	--success-darkest:#17C964;
+	--warning:#F5A524;
+	--warning-darker:#C4841D;
+	--warning-darkest:#936316;
+  --danger:#cf364c;
+  --danger-darker:#3f1f21;
+  --danger-darkest:#2b0613;
+	--link:#3291ff;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	background-repeat:no-repeat;
+	background: var(--background);
+	background-size:cover;
+	background-attachment: fixed;
+  color:var(--primary);
+  font-family:"Inter", sans-serif;
+	margin:20px;
+}
+
+h1.header{
+  background: -webkit-linear-gradient(var(--primary-darker), var(--secondary-darker));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+hr{
+	border:0.5px solid var(--background-bottom-lighter);
+	margin-top:15px;
+}
+
+label{
+  color:var(--secondary);
+}
+
+input, textarea{
+  box-sizing: border-box;
+  background-color:var(--background-lightest);
+  color:var(--primary-darker);
+  outline:1px solid var(--background-bottom-lighter);
+	border:none;
+  font-family:"Inter", sans-serif;
+  padding:8px 12px;
+  border-radius:7px;
+	resize:none;
+}
+input:focus, textarea:focus{
+	outline: thick double var(--background-bottom-lighter);
+	outline-color:var(--background-bottom-lighter);
+  border-color:var(--primary-darker);
+}
+
+button{
+  background-color:var(--primary);
+  color:var(--background-bottom);
+  border:none;
+  font-family:"Inter", sans-serif;
+  padding:8px 12px;
+  border-radius:7px;
+  font-weight:450;
+  transition:0.3s;
+}
+button:hover{
+  cursor:pointer;
+  background-color:var(--primary-darker);
+}
+button.badge{
+	border-radius:50px;
+}
+button svg{
+	vertical-align:middle;
+}
+button.secondary{
+  color:var(--secondary);
+  background-color: var(--background-top-lighter);
+  border:1px solid var(--background-top-lighter);
+}
+button.secondary:hover{
+  background-color:var(--background-top);
+}
+button.success{
+  color:var(--success);
+  background-color: var(--success-darkest);
+  border:1px solid var(--success-darker);
+}
+button.success:hover{
+  background-color:var(--success-darker);
+}
+button.warning{
+  color:var(--warning);
+  background-color: var(--warning-darkest);
+  border:1px solid var(--warning-darker);
+}
+button.warning:hover{
+  background-color:var(--warning-darker);
+}
+button.danger{
+  color:var(--danger);
+  background-color: var(--danger-darkest);
+  border:1px solid var(--danger-darker);
+}
+button.danger:hover{
+  background-color:var(--danger-darker);
+}
+
+a{
+	text-decoration:none;
+	color:var(--link);
+}
+a:hover{
+	text-decoration:underline;
+}
+
+a.secondary{
+	color:var(--secondary);
+}
+
+svg{
+	vertical-align:middle;
+}
+
+code{
+	padding:4px 8px;
+	border-radius:5px;
+	background-color:var(--background-bottom-lighter)
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color:var(--background-bottom);
+	color:var(--primary-darker);
+	text-align:center;
+}
+footer a{
+	color:var(--secondary);
+	transition:0.3s;
+}
+footer a:hover{
+	text-decoration:underline;
+}
+
+div.card, div.card-hoverable{
+  margin:auto;
+  max-width:600px;
+  padding:10px 10px;
+  border-radius:10px;
+  border:1.5px solid var(--background-top-lighter);
+	margin-bottom:10px;
+	transition:0.3s;
+}
+div.card-hoverable:hover{
+	cursor:pointer;
+	box-shadow: 5px 5px var(--background-top-lighter);
+}
+
+div.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius:10px;
+  border:1.5px solid var(--background-top-lighter);
+	display:flex;
+	align-items:center;
+  margin-bottom:20px;
+}
+div.navbar .left, .right, .center{
+  display: block;
+  color: var(--primary-darker);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+	transition:0.3s;
+}
+div.navbar .left{}
+
+div.navbar .right{
+	margin-left:auto;
+}
+div.navbar a:hover{
+	cursor:pointer;
+	/*color:var(--secondary);*/
+	text-decoration:underline;
+}
+div.navbar a svg{
+	vertical-align:middle;
+}
+
+div.navbar span.right a{
+	color:var(--primary-darker);
+}
+div.navbar span.right a:hover{
+	text-decoration:none;
+}
+
+#modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.5);
+	backdrop-filter: blur(5px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:var(--primary);
+}
+
+.modal__window {
+  position: relative;
+  background-color: var(--background-bottom);
+	border:1px solid var(--background-bottom-lighter);
+	border-radius:10px;
+  padding: 4em 2em;
+}
+.modal__window .label{
+	text-align:left;
+	width:600px;
+}
+
+.modal__close {
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+
+#modal:not(:target) {
+	visibility: hidden;
+	opacity: 0;
+}
+
+@media screen and (max-width: 700px) {
+	div.navbar span.hide{
+		display:none;
+	}
+	.modal__window .label{
+		width:300px;
+	}
+}
+
+div.dropdown {
+	display: inline-block;
+}
+
+div.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: var(--background-top);
+	border:1px solid var(--background-top-lighter);
+	max-width: 155px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	z-index: 1;
+	transition:0.3s;
+}
+
+div.dropdown-content span {
+	opacity:1;
+	padding: 12px 16px;
+	text-decoration: none;
+	border-radius:10px;
+	display: block;
+	text-align:left;
+	transition:0.3s;
+	margin-left:1px;
+	margin-right:1px;
+}
+div.dropdown-content span:hover{
+	background-color:var(--background-top-lighter);
+}
+div.dropdown-content span.danger{
+	color:var(--danger);
+}
+div.dropdown-content span.danger:hover{
+	background-color:var(--danger);
+	color:var(--primary);
+}
+div.dropdown:hover{
+	cursor:pointer;
+}
+div.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+nextjs-portal{
+	display:none;
+}

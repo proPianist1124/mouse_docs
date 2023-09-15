@@ -7,14 +7,11 @@ export async function middleware(req: NextRequest, res: NextResponse) {
     let user:any = req.cookies.get("user")
     try{
         user = await get_user(user.value)
+        return NextResponse.next()
     }catch(e){
         user = null
         return NextResponse.rewrite(new URL("/auth", req.url))
     }
-
-    console.log("mw ran")
-    
-    return NextResponse.next()
 }
 
 export const config = {

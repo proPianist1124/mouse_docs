@@ -32,7 +32,7 @@ function Dropdown(){
 
     function logout(){
         Cookies.remove("user")
-        router.replace("/")
+        router.push("/")
     }
     
     return (

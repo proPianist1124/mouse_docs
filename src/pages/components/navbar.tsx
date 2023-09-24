@@ -39,7 +39,7 @@ function Dropdown(){
         <div className = "dropdown">
             <span><Menu_Icon width = {21} height = {21}/></span>
             <div className = "dropdown-content">
-                <a href = "#modal"><span><User_Icon width = {17} height = {17}/> Account</span></a>
+                <a href = "#account"><span><User_Icon width = {17} height = {17}/> Account</span></a>
                 <Link href = "/rats"><span><Rat_Icon width = {17} height = {17}/> My Rats</span></Link>
                 <Link href = "/new"><span><Plus_Icon width = {17} height = {17}/> New Rat</span></Link>
                 <span className = "danger" onClick = {logout}><Logout_Icon width = {17} height = {17}/> Logout</span>
@@ -52,7 +52,7 @@ function Settings({user}:any){
     return (
         <div className="open">
 			<div>
-				<div id="modal">
+				<div className = "modal" id = "account">
 					<div className="modal__window">
                         <a href = "#"><button className = "secondary" style = {{float:"right"}}>Close</button></a>
                         <br></br>

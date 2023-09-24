@@ -1,13 +1,18 @@
 import { NextRequest } from "next/server"
 import supabase from "./supabase"
 
+export async function get_uuid(key){
+    let { data: uuids } = await supabase.from("uuids").select("uuid").eq("key", key)
+    let uuid = uuids[0].uuid
+    return uuid
+}
 
 export async function get_user(username){
     let { data: users } = await supabase.from("users").select("username").eq("username", username)
     let user;
     try{
         user = users[0].username
-    }catch(err){
+    }catch(e){
         user = null
     }
     return user
@@ -34,11 +39,16 @@ export async function get_rats(username){
 
 export async function get_cheeses(username, project){
     let { data: rat_file_titles } = await supabase.from("rats").select("file_titles").eq("author", username).eq("title", project)
-    return rat_file_titles
+    try{
+        return rat_file_titles[0].file_titles
+    }catch(e){
+        return null
+    }
 }
 
 export default async function handler(req, res){
     //const {data:files} = await supabase.from("rats").select("file_titles")
     //res.send(files[0].file_titles[0]);
-    res.send(await get_cheeses("proPianist1124", "asdf")) // trying to get the rats of a specific user
+    
+    res.send("nothing here…")
 }

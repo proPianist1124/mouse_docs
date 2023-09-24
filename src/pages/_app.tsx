@@ -2,8 +2,9 @@
 import type { AppProps } from "next/app"
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import ClipLoader from "react-spinners/ClipLoader"
+import Loader from "react-spinners/MoonLoader"
 
+// https://res.cloudinary.com/dyemytgtv/image/upload/v1695162896/rat_host_ngffbc.png --> backup favicon
 export default function App({ Component, pageProps }: AppProps) {
   const [ loading, setLoading ] = useState(false)
   useEffect(() => {
@@ -22,11 +23,12 @@ export default function App({ Component, pageProps }: AppProps) {
     <link href="https://propianist1124-ui.propianist1124.repl.co/style.css" rel="stylesheet" type="text/css"/>
     {loading ? 
       <div style = {centered}>
-        <ClipLoader size = {30} color = {"#fff"} loading = {loading}/>
+        <Loader size = {30} color = {"#fff"} loading = {loading}/>
       </div>
       :
       <main>
         <Component {...pageProps} />
+        <div style = {{paddingBottom:200}}></div>
         <footer>
           By <Link href = "https://propianist1124.vercel.app" target = "_blank">proPianist1124</Link>
         </footer>

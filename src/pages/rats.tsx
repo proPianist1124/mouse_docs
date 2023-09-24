@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
 
 import Navbar from "./components/navbar"
+import Rat_Icon from "./components/icons/rat"
 import { get_rats } from "./api/data"
 
 export default function Home({user, titles, descr}:any) {
@@ -15,7 +16,10 @@ export default function Home({user, titles, descr}:any) {
     </Head>
     <Navbar user = {user}/>
     <div className = "card">
-      <h3 style = {{textAlign:"center"}}>My Rats</h3>
+      <h3 style = {{display:"flex", alignItems:"center", justifyContent:"center"}}>
+        <Rat_Icon width = {22} height = {22}/>
+        &nbsp;My Rats
+      </h3>
       <br></br>
       {titles.map((title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined) =>
         <div className = "card-hoverable" key = {String(title)} onClick = {() => router.push(`/rats/${title}`)}>
@@ -32,7 +36,7 @@ export default function Home({user, titles, descr}:any) {
   )
 }
 
-export async function getServerSideProps(context: { req: { cookies: { [x: string]: any } } }){
+export async function getServerSideProps(context:any){
   // rat file content here
   let user = context.req.cookies.user
 

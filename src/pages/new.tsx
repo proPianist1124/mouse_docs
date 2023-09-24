@@ -27,7 +27,7 @@ export default function New({user}:any){
     )
 }
 
-export function getServerSideProps(context: { req: { cookies: { [x: string]: any } } }){
+export function getServerSideProps(context:any){
     let user = context.req.cookies.user
     return { props: { user } }
 }

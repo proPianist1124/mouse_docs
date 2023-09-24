@@ -2,7 +2,7 @@ import Head from "next/head"
 import { useState } from "react"
 
 import Index from "./components/landing"
-import Waitlist_login from "./components/waitlist_login"
+import Combo from "./components/waitlist_login"
 import Cheese_Icon from "./components/icons/cheese"
 import Logout_Icon from "./components/icons/logout"
 
@@ -19,7 +19,7 @@ export default function Auth(){
             </button>
         </div>
         <br></br><br></br>
-        {page ? <Index/> : <Waitlist_login/>}
+        {page ? <Index/> : <Combo/>}
         </>
     )
 }

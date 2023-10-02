@@ -4,7 +4,7 @@ import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLik
 
 import Navbar from "./components/navbar"
 import Rat_Icon from "./components/icons/rat"
-import { get_rats } from "./api/data"
+import { get_user, get_rats } from "./api/data"
 
 export default function Home({user, titles, descr}:any) {
   const router = useRouter()
@@ -37,8 +37,7 @@ export default function Home({user, titles, descr}:any) {
 }
 
 export async function getServerSideProps(context:any){
-  // rat file content here
-  let user = context.req.cookies.user
+  let user = await get_user(context.req.cookies.sid)
 
   const rats = await get_rats(user)
   return { props: {

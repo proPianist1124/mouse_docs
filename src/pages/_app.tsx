@@ -1,6 +1,7 @@
-//import "@/styles/globals.css"
+import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import Link from "next/link"
+import Script from "next/script"
 import { useState, useEffect } from "react"
 import Loader from "react-spinners/MoonLoader"
 
@@ -33,6 +34,10 @@ export default function App({ Component, pageProps }: AppProps) {
           By <Link href = "https://propianist1124.vercel.app" target = "_blank">proPianist1124</Link>
         </footer>
       </main>}
+      <Script src = "https://ui.propianist1124.repl.co/script.js"></Script>
+      <Script id="config">{`
+        localStorage.setItem("theme", "gradient");
+      `}</Script>
     </>
   )
 }

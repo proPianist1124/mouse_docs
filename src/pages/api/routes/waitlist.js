@@ -6,8 +6,9 @@ import { send_email } from "../email/template"
 export default async function handler(req, res){
     if(req.method == "POST"){
         if(req.body.email == process.env.EMAIL){
+            const { data: sid } = await supabase.from("users").select("sid").eq("email", req.body.email)
             res.setHeader("Set-Cookie", [
-                serialize("user", "test", { path: "/" }),
+                serialize("sid", sid[0].sid, { path: "/" }),
             ]);
             res.redirect(302, "/")
         }else{

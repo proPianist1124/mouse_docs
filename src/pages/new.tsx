@@ -1,6 +1,7 @@
 import Head from "next/head"
 
 import Navbar from "./components/navbar"
+import { get_user } from "./api/data"
 
 export default function New({user}:any){
     return (
@@ -27,7 +28,7 @@ export default function New({user}:any){
     )
 }
 
-export function getServerSideProps(context:any){
-    let user = context.req.cookies.user
+export async function getServerSideProps(context:any){
+    let user = await get_user(context.req.cookies.sid)
     return { props: { user } }
 }

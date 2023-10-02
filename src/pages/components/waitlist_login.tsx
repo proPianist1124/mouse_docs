@@ -1,10 +1,10 @@
 import { useRouter } from "next/router"
-import { useState, useRef } from "react"
+import {useEffect, useState, useRef } from "react"
 import Cookies from "js-cookie"
 
 import Rat_Icon from "./icons/rat"
 import supabase from "../api/supabase"
-import { get_user, get_password } from "../api/data"
+import { get_password } from "../api/data"
 
 function Waitlist(){
     return (
@@ -30,9 +30,9 @@ function Login(){
     let [ message, setMessage ]:any = useState("")
     let [ loading, setLoading ]:any = useState("Login")
 
-    const user:any = useRef(null)
-    const password:any = useRef(null)
-    const error:any = useRef(null)
+    const user:any = useRef()
+    const password:any = useRef()
+    const error:any = useRef()
 
     const key = (e:any) => {
         if(e.key == "Enter"){
@@ -41,25 +41,37 @@ function Login(){
     }
     document.addEventListener("keydown", key)
 
+    // login code for listening to key "enter" and onClick for button
     async function login(){
+        async function get_user(username:any){
+            const { data: user }:any = await supabase.from("users").select("username").eq("username", username)
+            try{
+                return user[0].username
+            }catch(e){
+                return null
+            }
+        }
+
         if(user.current.value == "" || password.current.value == ""){
             setMessage("Please provide a username and password")
         }else{
-            if(await get_user(user.current.value) == null){
-                setMessage("Something went wrong. Please try again.")
-            }else{
+            //const { data: exists }:any = await supabase.from("users").select("username").eq("username", user.current.value)
+            if(await get_user(user.current.value) != null){
                 if(await get_password(user.current.value) == password.current.value){
                     const { data: email }:any = await supabase.from("users").select("email").eq("username", user.current.value)
+                    const { data:sid }:any = await supabase.from("users").select("sid").eq("username", user.current.value)
 
                     setLoading("Logging in...")
                     setTimeout(() => {
-                        Cookies.set("user", user.current.value)
+                        Cookies.set("sid", sid[0].sid)
                         //router.push(`/api/email/send?to=${email[0].email}&subject=Suspicious&content=There%20was%20suspicious%20login%20activity%20from%20your%20account%2C%20%3Cb%3E${user.current.value}%3C/b%3E`)
                         router.push("/")
                     }, 1500);
                 }else{
                     setMessage("Invalid credentials")
                 }
+            }else{
+                setMessage("Something went wrong. Please try again.")
             }
         }
     }

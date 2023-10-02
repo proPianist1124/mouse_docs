@@ -1,40 +1,39 @@
 import Link from "next/link"
 
-import Arrow_Icon from "./icons/arrow"
-import Cheese_Icon from "./icons/cheese"
-import Code_Icon from "./icons/code"
-import Laptop_Icon from "./icons/laptop"
+import Rocket_Icon from "../components/icons/landing/rocket"
+import Book_Icon from "../components/icons/landing/book"
+import Arrow_Icon from "../components/icons/arrow"
+import Cheese_Icon from "../components/icons/cheese"
+import Code_Icon from "../components/icons/code"
+import Laptop_Icon from "../components/icons/laptop"
 
-function Rocket_Icon(){
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 210 210" fill="none">
-            <path d="M39.375 144.375C26.25 155.4 21.875 188.125 21.875 188.125C21.875 188.125 54.6 183.75 65.625 170.625C71.8375 163.275 71.75 151.988 64.8375 145.163C61.4364 141.916 56.9563 140.041 52.257 139.895C47.5576 139.75 42.9702 141.345 39.375 144.375Z" stroke="currentColor" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M105 131.25L78.75 105C83.4063 92.92 89.2693 81.3406 96.25 70.4375C106.445 54.1361 120.642 40.7142 137.489 31.4483C154.336 22.1824 173.273 17.3807 192.5 17.5C192.5 41.3 185.675 83.125 140 113.75C128.948 120.739 117.222 126.601 105 131.25Z" stroke="currentColor" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M78.75 105H35C35 105 39.8125 78.4875 52.5 70C66.675 60.55 96.25 70 96.25 70" stroke="currentColor" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M105 131.25V175C105 175 131.513 170.188 140 157.5C149.45 143.325 140 113.75 140 113.75" stroke="currentColor" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-    )
-}
 export function Landing(){
+    const flex_card:any = {
+        textAlign:"center",
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        border:"none",
+        color:"var(--primary-darker)"
+    }
 
     return (
         <>
         <div style = {{height:"100vh"}}>
-            <div className = "header">
-                <h1 style = {{fontSize:50}}>Where <span style = {{color:"#17C964"}}>Innovation</span> Takes Flight</h1>
-                <h2 style = {{fontWeight:450}}>Your Friendly Neighborhood Hosting Service</h2>
-            </div>
-            <div className = "card" style = {{border:"none", maxWidth:750, display:"flex", color:"var(--primary-darker)"}}>
-                <div style = {{paddingRight:50}}>
-                    <Rocket_Icon/>
+            <h1 style = {{textAlign:"center", fontSize:45}} className = "header-left-right"><b>Your Friendly Neighborhood Text Editor</b></h1>
+            <p style = {{color:"var(--primary-darkest)", textAlign:"center", fontSize:20, fontStyle:"italic"}}><b>your gateway to the freedom of writing</b></p>
+            <div style = {{paddingBottom:125}}></div>
+            <div className = "container">
+                <div className = "card" style = {flex_card}>
+                    <h1><i>Your</i> Idea<br></br>Takes Flight</h1>
+                    &nbsp;&nbsp;<Rocket_Icon/>
                 </div>
-                <p>
-                    Rat Host is an open-source file hosting service. Aiming to be intuitive, secure, and versatile, this will be the gateway to your freedom of writing.
-                    <br></br><br></br>
-                    <Link href = "/new"><button style = {{borderRadius:50}}>Get Started</button></Link> <button style = {{borderRadius:50}} className = "secondary">Pricing</button>
-                </p>
+                <div className = "card" style = {flex_card}>
+                    <h1>Proudly<br></br>Open Source</h1>
+                    &nbsp;&nbsp;<Book_Icon/>
+                </div>
             </div>
-            <div style = {{display:"flex", justifyContent:"center", paddingTop:100}}>
+            <div style = {{display:"flex", justifyContent:"center", paddingTop:75}}>
                 <Arrow_Icon width = {50} height = {50}/>
             </div>
         </div>

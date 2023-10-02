@@ -7,15 +7,13 @@ export async function get_uuid(key){
     return uuid
 }
 
-export async function get_user(username){
-    let { data: users } = await supabase.from("users").select("username").eq("username", username)
-    let user;
-    try{
-        user = users[0].username
+export async function get_user(uuid){
+    const { data: sid } = await supabase.from("users").select("username").eq("sid", uuid)
+    try {
+        return sid[0].username
     }catch(e){
-        user = null
+        return null
     }
-    return user
 }
 
 export async function get_password(username){
@@ -47,8 +45,6 @@ export async function get_cheeses(username, project){
 }
 
 export default async function handler(req, res){
-    //const {data:files} = await supabase.from("rats").select("file_titles")
-    //res.send(files[0].file_titles[0]);
-    
-    res.send("nothing here…")
+    const {data:files} = await supabase.from("rats").select("file_titles")
+    res.send(files[0].file_titles[0]);
 }

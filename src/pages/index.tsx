@@ -1,8 +1,8 @@
 import Head from "next/head"
-import Script from "next/script"
 
 import Index from "./components/landing"
 import Navbar from "./components/navbar"
+import { get_user } from "./api/data"
 
 export default function Landing({user}:any){
     return (
@@ -12,12 +12,11 @@ export default function Landing({user}:any){
         </Head>
         <Navbar user = {user}/>
         <Index/>
-        <Script src = "https://ui.propianist1124.repl.co/script.js"/>
         </>
     )
 }
 
-export function getServerSideProps(context:any){
-    let user = context.req.cookies.user
+export async function getServerSideProps(context:any){
+    let user = await get_user(context.req.cookies.sid)
     return { props: { user } }
 }

@@ -9,7 +9,6 @@ import Rat_Icon from "./icons/rat"
 import User_Icon from "./icons/user"
 
 export default function Navbar({user}:any){
-
     return(
         <>
         <div className = "navbar">
@@ -31,7 +30,7 @@ function Dropdown(){
     const router = useRouter()
 
     function logout(){
-        Cookies.remove("user")
+        Cookies.remove("sid")
         router.push("/")
     }
     
@@ -56,13 +55,17 @@ function Settings({user}:any){
 					<div className="modal__window">
                         <a href = "#"><button className = "secondary" style = {{float:"right"}}>Close</button></a>
                         <br></br>
-						<h2 className = "label">My User Settings</h2>
+						<h2 className = "modal-label">My User Settings</h2>
                         <br></br>
-                        <div className = "card" style = {{textAlign:"left", borderColor:"var(--background-bottom-lighter)"}}>
+                        <div className = "card" style = {{borderColor:"var(--background-bottom-lighter)"}}>
                             <br></br>
-                            <div><b>Username</b>&nbsp;&nbsp;<input value = {user} disabled/></div>
+                            <div>
+                                <b>Username</b>&nbsp;&nbsp;<span style = {{color:"var(--primary-darkest)"}}>{user}</span>
+                            </div>
                             <br></br>
-                            <div><b>Password</b>&nbsp;&nbsp;<input value = "********" disabled/></div>
+                            <div>
+                                <b>Password</b>&nbsp;&nbsp;<span style = {{color:"var(--primary-darkest)"}}>******</span>
+                            </div>
                             <br></br><br></br>
                             <p style = {{color:"var(--secondary-darker)", fontSize:13}}>Secured by <b>Rat Host</b> <Rat_Icon width = {15} height = {15}/></p>
                         </div>

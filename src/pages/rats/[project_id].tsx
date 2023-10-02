@@ -1,18 +1,15 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
 
 import Navbar from "../components/navbar"
 import Custom404 from "../404"
 import Cheese_Icon from "../components/icons/cheese"
 import supabase from "../api/supabase"
-import { get_cheeses } from "../api/data"
+import { get_user, get_cheeses } from "../api/data"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
 
-export default function Rat({user, descr, cheeses}:any){
+export default function Rat({user, cheeses, descr}:any){
     const router = useRouter()
-
-    let description = "temp descr"
     
     if(cheeses == null){
         return <Custom404/>
@@ -24,13 +21,15 @@ export default function Rat({user, descr, cheeses}:any){
             <title>{`${router.query.project_id} - Rat Host`}</title>
         </Head>
         <Navbar user = {user}/>
-        <div className = "card">
-            <b>Rat</b>: {router.query.project_id}
+        <div className = "card" style = {{border:"none"}}>
+            <b>Rat: </b> {router.query.project_id}
             <span style = {{color:"var(--secondary)", float:"right"}}>{descr}</span>
-            <br></br><br></br>
+        </div>
+        <div className = "card">
             <p style = {{color:"var(--secondary)"}}>
                 &nbsp;Cheeses <Cheese_Icon width = {20} height = {20}/>
             </p>
+            <br></br>
             {cheeses.map((cheese: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined) =>
                 <div className = "card-hoverable" key = {String(cheese)} onClick = {() => router.push(`/rats/${router.query.project_id}/${cheese}`)}>
                     {cheese}
@@ -50,12 +49,21 @@ export default function Rat({user, descr, cheeses}:any){
 }
 
 export async function getServerSideProps(context:any){
-    let user = context.req.cookies.user
-    const { data: descr }:any = await supabase.from("rats").select("description").eq("title", context.query.project_id).eq("author", context.req.cookies.user)
+    let user = await get_user(context.req.cookies.sid)
+    const { data: descr }:any = await supabase.from("rats").select("description").eq("title", context.query.project_id).eq("author", user)
+    const cheeses = JSON.parse(await get_cheeses(user, context.query.project_id))
 
-    return { props: {
-        user,
-        cheeses:JSON.parse(await get_cheeses(user, context.query.project_id)),
-        descr:descr[0].description
-    } }
+    try{
+        return { props: {
+            user,
+            cheeses,
+            descr:descr[0].description
+        } }
+    }catch(e){
+        return { props: {
+            user,
+            cheeses,
+            descr:null
+        } }
+    }
 }

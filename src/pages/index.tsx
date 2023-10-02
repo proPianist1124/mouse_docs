@@ -8,7 +8,7 @@ export default function Landing({user}:any){
     return (
         <>
         <Head>
-            <title>Home - Rat Host</title>
+            <title>Home - Mouse Docs</title>
         </Head>
         <Navbar user = {user}/>
         <Index/>

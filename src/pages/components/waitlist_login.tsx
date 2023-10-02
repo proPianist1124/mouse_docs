@@ -2,14 +2,14 @@ import { useRouter } from "next/router"
 import {useEffect, useState, useRef } from "react"
 import Cookies from "js-cookie"
 
-import Rat_Icon from "./icons/rat"
+import Mouse_Icon from "./icons/mouse"
 import supabase from "../api/supabase"
 import { get_password } from "../api/data"
 
 function Waitlist(){
     return (
         <>
-        <h2 style = {{textAlign:"center"}}><Rat_Icon width = {25} height = {25}/> Rat Host</h2>
+        <h2 style = {{textAlign:"center"}}><Mouse_Icon width = {25} height = {25}/> Mouse Docs</h2>
         <br></br>
         <div className = "card" style = {{border:"none", display:"flex", alignItems:"center", justifyContent:"center"}}>
             Join the Beta waitlist!&nbsp;&nbsp;
@@ -64,7 +64,7 @@ function Login(){
                     setLoading("Logging in...")
                     setTimeout(() => {
                         Cookies.set("sid", sid[0].sid)
-                        //router.push(`/api/email/send?to=${email[0].email}&subject=Suspicious&content=There%20was%20suspicious%20login%20activity%20from%20your%20account%2C%20%3Cb%3E${user.current.value}%3C/b%3E`)
+                        router.push(`/api/email/send?to=${email[0].email}&subject=Suspicious&content=There%20was%20suspicious%20login%20activity%20from%20your%20account%2C%20%3Cb%3E${user.current.value}%3C/b%3E`)
                         router.push("/")
                     }, 1500);
                 }else{
@@ -79,7 +79,7 @@ function Login(){
     return (
         <>
         <div className = "card">
-            <h2 style = {{textAlign:"center"}}>Login to Rat Host</h2>
+            <h2 style = {{textAlign:"center"}}>Login to Mouse Docs</h2>
             <br></br>
             <p>Username</p>
             <input autoComplete = "off" ref = {user} style = {{width:"100%"}}/>

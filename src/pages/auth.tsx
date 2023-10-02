@@ -11,7 +11,7 @@ export default function Auth(){
     return (
         <>
         <Head>
-            <title>{page ? "Your Text Editor - Rat Host" : "Join the Waitlist - Rat Host"}</title>
+            <title>{page ? "Your Text Editor - Mouse Docs" : "Join the Waitlist - Mouse Docs"}</title>
         </Head>
         <div style = {{float:"right"}}>
             <button onClick = {()=> setPage(!page)} className = "secondary">

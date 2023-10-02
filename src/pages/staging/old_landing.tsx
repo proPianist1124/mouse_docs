@@ -46,11 +46,11 @@ export function Landing(){
                 </div>
                 <div className = "card-hoverable" style = {{height:200}}>
                     <h3>Easily Customizable&nbsp;<Code_Icon width = {25} height = {25}/></h3>
-                    Because this is an open source project, you can easily customize the styling and code to your preference by cloning our repo! Make Rat Host <i>yours</i>.
+                    Because this is an open source project, you can easily customize the styling and code to your preference by cloning our repo! Make Mouse Docs <i>yours</i>.
                 </div>
                 <div className = "card-hoverable" style = {{marginLeft:45, height:200}}>
                     <h3>Hosting Like Never Before&nbsp;<Laptop_Icon width = {25} height = {25}/></h3>
-                    You could also host Rat Host locally if you&apos;re paranoid - just clone our Github repo and setup a <Link href = "https://supabase.com" target = "_blank">Supabase</Link> project for an API key!
+                    You could also host Mouse Docs locally if you&apos;re paranoid - just clone our Github repo and setup a <Link href = "https://supabase.com" target = "_blank">Supabase</Link> project for an API key!
                 </div>
             </div>
         </div>

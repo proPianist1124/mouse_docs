@@ -18,11 +18,11 @@ export default function Rat({user, cheeses, descr}:any){
     return (
         <>
         <Head>
-            <title>{`${router.query.project_id} - Rat Host`}</title>
+            <title>{`${router.query.project_id} - Mouse Docs`}</title>
         </Head>
         <Navbar user = {user}/>
         <div className = "card" style = {{border:"none"}}>
-            <b>Rat: </b> {router.query.project_id}
+            <b>Mouse: </b> {router.query.project_id}
             <span style = {{color:"var(--secondary)", float:"right"}}>{descr}</span>
         </div>
         <div className = "card">
@@ -31,7 +31,7 @@ export default function Rat({user, cheeses, descr}:any){
             </p>
             <br></br>
             {cheeses.map((cheese: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined) =>
-                <div className = "card-hoverable" key = {String(cheese)} onClick = {() => router.push(`/rats/${router.query.project_id}/${cheese}`)}>
+                <div className = "card-hoverable" key = {String(cheese)} onClick = {() => router.push(`/mouses/${router.query.project_id}/${cheese}`)}>
                     {cheese}
                 </div>
             )}
@@ -50,7 +50,7 @@ export default function Rat({user, cheeses, descr}:any){
 
 export async function getServerSideProps(context:any){
     let user = await get_user(context.req.cookies.sid)
-    const { data: descr }:any = await supabase.from("rats").select("description").eq("title", context.query.project_id).eq("author", user)
+    const { data: descr }:any = await supabase.from("mouses").select("description").eq("title", context.query.project_id).eq("author", user)
     const cheeses = JSON.parse(await get_cheeses(user, context.query.project_id))
 
     try{

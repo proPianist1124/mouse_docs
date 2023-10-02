@@ -8,11 +8,14 @@ export async function middleware(req: NextRequest) {
     if(user == undefined){
         return NextResponse.rewrite(new URL("/auth", req.url))
     }else{
-        console.log(user.value)
-        return NextResponse.next()
+        if(await get_user(user.value) == null){
+            return NextResponse.rewrite(new URL("/auth", req.url))
+        }else{
+            return NextResponse.next()
+        }
     }
 }
 
 export const config = {
-    matcher: ["/", "/new", "/rats/:project_id/:cheese_id"]
+    matcher: ["/", "/new", "/mouses/:project_id/:cheese_id"]
 }

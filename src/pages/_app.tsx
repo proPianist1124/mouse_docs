@@ -5,7 +5,6 @@ import Script from "next/script"
 import { useState, useEffect } from "react"
 import Loader from "react-spinners/MoonLoader"
 
-// https://res.cloudinary.com/dyemytgtv/image/upload/v1695162896/rat_host_ngffbc.png --> backup favicon
 export default function App({ Component, pageProps }: AppProps) {
   const [ loading, setLoading ] = useState(false)
   useEffect(() => {

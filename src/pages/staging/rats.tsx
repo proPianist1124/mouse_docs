@@ -1,7 +1,7 @@
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
-import { get_user, get_rats } from "../api/data"
+import { get_user, get_mouses } from "../api/data"
 
-export default function Rats({titles, descr}:any){
+export default function mouses({titles, descr}:any){
     return (
         <>
         <div className = "card">
@@ -18,9 +18,9 @@ export default function Rats({titles, descr}:any){
 
 export async function getServerSideProps(context: { req: { cookies: { [x: string]: any } } }){
     let user = await get_user(context.req.cookies.sid)
-    const rats = await get_rats(user)
+    const mouses = await get_mouses(user)
     return { props: {
-        titles:rats[0],
-        descr:rats[1],
+        titles:mouses[0],
+        descr:mouses[1],
     } }
 }

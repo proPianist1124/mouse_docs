@@ -5,7 +5,7 @@ export async function send_email(to, subject, content){
     (async function (){
       try{
         const data = await resend.emails.send({
-          from: "Rat Host <no-reply@rat-host.obl.ong>",
+          from: "Mouse Docs <no-reply@mouse-docs.obl.ong>",
           to: to,
           subject: subject,
           html: content,

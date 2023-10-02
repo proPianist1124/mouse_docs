@@ -7,13 +7,13 @@ export default function New({user}:any){
     return (
         <>
         <Head>
-            <title>New Project - Rat Host</title>
+            <title>New Project - Mouse Docs</title>
         </Head>
         <Navbar user = {user}/>
         <div className = "card">
-            <h2 style = {{textAlign:"center"}}>Your New Rat!</h2>
+            <h2 style = {{textAlign:"center"}}>Your New Mouse!</h2>
             <br></br>
-            <form action = "/api/routes/new_rat" method = "POST">
+            <form action = "/api/routes/new_mouse" method = "POST">
                 <p>Title</p>
                 <input name = "title" autoComplete = "off" style = {{width:"100%"}} required/>
                 <p>Description</p>

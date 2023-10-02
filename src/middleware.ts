@@ -8,6 +8,8 @@ export async function middleware(req: NextRequest) {
     try{
         if(await get_user(user.value)){
             return NextResponse.next()
+        }else{
+            return NextResponse.next()
         }
     }catch(e){
         return NextResponse.rewrite(new URL("/auth", req.url))

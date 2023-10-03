@@ -48,14 +48,12 @@ export default function Cheese({user, exists, file_titles, file_content}:any){
     async function title_change(){
         file_titles[file_titles.indexOf(router.query.cheese_id)] = `${cheese.split(" ")[0]}_${title.current.value}`
 
-        await supabase.from("mouses").update({ file_titles }).eq("title", router.query.project_id).eq("author", user)
-        router.push(`/mouses/${router.query.project_id}/${cheese.split(" ")[0]}_${title.current.value}`)
+        await supabase.from("mice").update({ file_titles }).eq("title", router.query.project_id).eq("author", user)
+        router.push(`/mice/${router.query.project_id}/${cheese.split(" ")[0]}_${title.current.value}`)
     }
     async function content_change(){
-        //console.log(`content has changed to ${content.current.value}`)
         file_content[file_titles.indexOf(router.query.cheese_id)] = content.current.value
-        await supabase.from("mouses").update({ file_content }).eq("title", router.query.project_id).eq("author", user)
-        //console.log(file_content[0].file_content)
+        await supabase.from("mice").update({ file_content }).eq("title", router.query.project_id).eq("author", user)
     }
     return (
         <>
@@ -79,8 +77,8 @@ export async function getServerSideProps(context:any){
     let user = await get_user(context.req.cookies.sid)
     let cheeses = JSON.parse(await get_cheeses(user, context.query.project_id))
 
-    const { data: file_titles }:any = await supabase.from("mouses").select("file_titles").eq("title", context.query.project_id).eq("author", user)
-    const { data: file_content }:any = await supabase.from("mouses").select("file_content").eq("title", context.query.project_id).eq("author", user)
+    const { data: file_titles }:any = await supabase.from("mice").select("file_titles").eq("title", context.query.project_id).eq("author", user)
+    const { data: file_content }:any = await supabase.from("mice").select("file_content").eq("title", context.query.project_id).eq("author", user)
 
     return { props: {
         user,

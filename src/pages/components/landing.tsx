@@ -29,7 +29,7 @@ export function Landing(){
                     <Rocket_Icon/>
                 </div>
                 <p>
-                    Mouse Docs is an open-source word processor. Aiming to be intuitive, secure, and versatile, this will be the gateway to your freedom of writing.
+                    Mouse Docs is an open-source, online word processor. Aiming to be intuitive, secure, and versatile, this is the gateway to your freedom of writing.
                     <br></br><br></br>
                     <Link href = "/new"><button style = {{borderRadius:50}}>Get Started</button></Link> <button style = {{borderRadius:50}} className = "secondary">Pricing</button>
                 </p>

@@ -7,7 +7,7 @@ Mouse Docs is a lightweight and customizable open source text editor designed fo
 - **Customization:** Tailor Mouse Docs to your needs with a wide range of customizable options by cloning our Github repo! Change the code and CSS to your liking and host it on your own machine!
 - **Cross Platform:** Mouse Docs is available on Windows, macOS, and Linux, ensuring a consistent experience across different operating systems.
 - **Easy Syntax:** We believe in Markdown, and so should you. Mouse Docs is fully supported with Markdown.
-- **Clean Interface & Organization:** With our prebuilt organization of "mouses" (projects) and "cheeses" (documents in a project), one can fetch their work in a matter of seconds.
+- **Clean Interface & Organization:** With our prebuilt organization of "mice" (projects) and "cheeses" (documents in a project), one can fetch their work in a matter of seconds.
 
 
 ### Getting Started

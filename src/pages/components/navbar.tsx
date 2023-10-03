@@ -32,6 +32,7 @@ function Dropdown(){
     function logout(){
         Cookies.remove("sid")
         router.push("/")
+        router.reload()
     }
     
     return (
@@ -39,7 +40,7 @@ function Dropdown(){
             <span><Menu_Icon width = {21} height = {21}/></span>
             <div className = "dropdown-content">
                 <a href = "#account"><span><User_Icon width = {17} height = {17}/> Account</span></a>
-                <Link href = "/mouses"><span><Mouse_Icon width = {17} height = {17}/> Mouses</span></Link>
+                <Link href = "/mice"><span><Mouse_Icon width = {17} height = {17}/> My Mice</span></Link>
                 <Link href = "/new"><span><Plus_Icon width = {17} height = {17}/> Add New</span></Link>
                 <span className = "danger" onClick = {logout}><Logout_Icon width = {17} height = {17}/> Logout</span>
             </div>

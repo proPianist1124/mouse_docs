@@ -4,7 +4,7 @@ export default async function handler(req, res){
     if(req.method == "POST"){
         // logic
         await supabase
-            .from("mouses")
+            .from("mice")
             .insert({
                     title:req.body.title,
                     author:req.cookies.user,
@@ -12,7 +12,7 @@ export default async function handler(req, res){
                     file_content:[],
                     description:req.body.description
                 });
-        res.redirect(302, "/mouses")
+        res.redirect(302, "/mice")
     }else{
         res.send("Bad Request")
     }

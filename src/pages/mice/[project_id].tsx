@@ -31,13 +31,13 @@ export default function Rat({user, cheeses, descr}:any){
             </p>
             <br></br>
             {cheeses.map((cheese: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined) =>
-                <div className = "card-hoverable" key = {String(cheese)} onClick = {() => router.push(`/mouses/${router.query.project_id}/${cheese}`)}>
+                <div className = "card-hoverable" key = {String(cheese)} onClick = {() => router.push(`/mice/${router.query.project_id}/${cheese}`)}>
                     {cheese}
                 </div>
             )}
             <br></br><br></br>
             <form action = "/api/routes/new_cheese" method = "POST" style = {{display:"flex", justifyContent:"center"}}>
-                <input type = "hidden" defaultValue = {router.query.project_id} name = "project" required/>
+                <input type = "hidden" defaultValue = {router.query.project_id} name = "mouse" required/>
                 <input type = "text" autoComplete = "off" placeholder = "cheese name…" name = "cheese" required/>&nbsp;
                 <button>
                     Add Cheese
@@ -50,7 +50,7 @@ export default function Rat({user, cheeses, descr}:any){
 
 export async function getServerSideProps(context:any){
     let user = await get_user(context.req.cookies.sid)
-    const { data: descr }:any = await supabase.from("mouses").select("description").eq("title", context.query.project_id).eq("author", user)
+    const { data: descr }:any = await supabase.from("mice").select("description").eq("title", context.query.project_id).eq("author", user)
     const cheeses = JSON.parse(await get_cheeses(user, context.query.project_id))
 
     try{

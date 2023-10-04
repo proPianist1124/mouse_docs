@@ -1,10 +1,15 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 
 import Navbar from "../../components/navbar"
 import Custom404 from "../../404"
 import Mouse_Icon from "../../components/icons/mouse"
+import Bold_Icon from "../../components/icons/bold"
+import Italic_Icon from "../../components/icons/italic"
+import Plus_Icon from "../../components/icons/plus"
+import Minus_Icon from "../../components/icons/minus"
+
 import { get_user, get_cheeses } from "../../api/data"
 import supabase from "../../api/supabase"
 
@@ -34,11 +39,21 @@ function Modal(){
     )
 }
 
+function ToolBar_Spacer(){
+    return (
+        <>
+        &nbsp;&nbsp;<span style = {{color:"var(--secondary"}}>|</span>&nbsp;
+        </>
+    )
+}
+
 export default function Cheese({user, exists, file_titles, file_content}:any){
     const router = useRouter()
 
     let title:any = useRef()
     let content:any = useRef()
+
+    const [ fontSize, setFontSize ] = useState(16)
 
     if(exists == false){
         return <Custom404/>
@@ -67,7 +82,15 @@ export default function Cheese({user, exists, file_titles, file_content}:any){
             <input style = {{width:"100%"}} defaultValue = {cheese.split(" ")[1]} ref = {title} onBlur = {title_change}/>
         </div>
         <br></br>
-        <textarea style = {{width:"100%", height:"70vh", outline:"none"}} autoComplete = "off" ref = {content} placeholder = "let your imagination run wild…" onChange = {content_change} defaultValue = {file_content[file_titles.indexOf(router.query.cheese_id)]}></textarea>
+        <div className = "card" style = {{maxWidth:"100%", display:"flex", alignItems:"center"}}>
+            <button className = "secondary"><Bold_Icon width = {16} height = {16}/></button>
+            &nbsp;<button className = "secondary"><Italic_Icon width = {16} height = {16}/></button>
+            <ToolBar_Spacer/>
+            &nbsp;<button className = "secondary" onClick = {() => setFontSize(fontSize+1)}><Plus_Icon width = {16} height = {16}/></button>
+            &nbsp;<span style = {{color:"var(--secondary)"}}>{fontSize}</span>
+            &nbsp;<button className = "secondary" onClick = {() => setFontSize(fontSize-1)}><Minus_Icon width = {16} height = {16}/></button>
+        </div>
+        <textarea style = {{width:"100%", height:"70vh", outline:"none", fontSize: fontSize}} autoComplete = "off" ref = {content} placeholder = "let your imagination run wild…" onChange = {content_change} defaultValue = {file_content[file_titles.indexOf(router.query.cheese_id)]}></textarea>
         <Modal/>
         </>
     )

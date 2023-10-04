@@ -4,7 +4,7 @@ import Cookies from "js-cookie"
 
 import Menu_Icon from "./icons/menu"
 import Logout_Icon from "./icons/logout"
-import Plus_Icon from "./icons/plus"
+import RoundPlus_Icon from "./icons/roundplus"
 import Mouse_Icon from "./icons/mouse"
 import User_Icon from "./icons/user"
 
@@ -41,7 +41,7 @@ function Dropdown(){
             <div className = "dropdown-content">
                 <a href = "#account"><span><User_Icon width = {17} height = {17}/> Account</span></a>
                 <Link href = "/mice"><span><Mouse_Icon width = {17} height = {17}/> My Mice</span></Link>
-                <Link href = "/new"><span><Plus_Icon width = {17} height = {17}/> Add New</span></Link>
+                <Link href = "/new"><span><RoundPlus_Icon width = {17} height = {17}/> Add New</span></Link>
                 <span className = "danger" onClick = {logout}><Logout_Icon width = {17} height = {17}/> Logout</span>
             </div>
         </div>

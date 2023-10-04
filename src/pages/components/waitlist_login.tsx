@@ -64,7 +64,7 @@ function Login(){
                     setLoading("Logging in...")
                     setTimeout(() => {
                         Cookies.set("sid", sid[0].sid)
-                        router.push(`/api/email/send?to=${email[0].email}&subject=Suspicious&content=There%20was%20suspicious%20login%20activity%20from%20your%20account%2C%20%3Cb%3E${user.current.value}%3C/b%3E`)
+                        //router.push(`/api/email/send?to=${email[0].email}&subject=Suspicious&content=There%20was%20suspicious%20login%20activity%20from%20your%20account%2C%20%3Cb%3E${user.current.value}%3C/b%3E`)
                         router.push("/")
                     }, 1500);
                 }else{

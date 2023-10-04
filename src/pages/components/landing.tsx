@@ -31,7 +31,7 @@ export function Landing(){
                 <p>
                     Mouse Docs is an open-source, online word processor. Aiming to be intuitive, secure, and versatile, this is the gateway to your freedom of writing.
                     <br></br><br></br>
-                    <Link href = "/new"><button style = {{borderRadius:50}}>Get Started</button></Link> <button style = {{borderRadius:50}} className = "secondary">Pricing</button>
+                    <Link href = "/about"><button style = {{borderRadius:50}}>About Us</button></Link> <button style = {{borderRadius:50}} className = "secondary">Pricing</button>
                 </p>
             </div>
             <div style = {{display:"flex", justifyContent:"center", paddingTop:100}}>

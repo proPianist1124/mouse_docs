@@ -2,31 +2,14 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import Cookies from "js-cookie"
 
+import Account_Modal from "./modal/account_modal"
+import Mouse_Icon from "./icons/mouse"
 import Menu_Icon from "./icons/menu"
 import Logout_Icon from "./icons/logout"
 import RoundPlus_Icon from "./icons/roundplus"
-import Mouse_Icon from "./icons/mouse"
 import User_Icon from "./icons/user"
 
-export default function Navbar({user}:any){
-    return(
-        <>
-        <div className = "navbar">
-            <Link href = "/" className = "left" style = {{display:"flex", alignItems:"center"}}>
-                <Mouse_Icon width = {17} height = {17}/>
-                &nbsp;<b style = {{fontSize:20}}>Mouse Docs</b>
-            </Link>
-            <span className = "right" style = {{marginRight:70, display:"flex", alignItems:"center"}}>
-                {String(user)}
-                &nbsp;&nbsp;<Dropdown/>
-            </span>
-        </div>
-        <Settings user = {user}/>
-        </>
-    )
-}
-
-function Dropdown(){
+function Account_Dropdown(){
     const router = useRouter()
 
     function logout(){
@@ -47,32 +30,20 @@ function Dropdown(){
         </div>
     )
 }
-
-function Settings({user}:any){
-    return (
-        <div className="open">
-			<div>
-				<div className = "modal" id = "account">
-					<div className="modal__window">
-                        <a href = "#"><button className = "secondary" style = {{float:"right"}}>Close</button></a>
-                        <br></br>
-						<h2 className = "modal-label">My User Settings</h2>
-                        <br></br>
-                        <div className = "card" style = {{borderColor:"var(--background-bottom-lighter)"}}>
-                            <br></br>
-                            <div>
-                                <b>Username</b>&nbsp;&nbsp;<span style = {{color:"var(--primary-darkest)"}}>{user}</span>
-                            </div>
-                            <br></br>
-                            <div>
-                                <b>Password</b>&nbsp;&nbsp;<span style = {{color:"var(--primary-darkest)"}}>******</span>
-                            </div>
-                            <br></br><br></br>
-                            <p style = {{color:"var(--secondary-darker)", fontSize:13}}>Secured by <b>Mouse Docs</b> <Mouse_Icon width = {15} height = {15}/></p>
-                        </div>
-					</div>
-				</div>
-			</div>
-		</div>
+export default function Navbar({user}:any){
+    return(
+        <>
+        <div className = "navbar">
+            <Link href = "/" className = "left" style = {{display:"flex", alignItems:"center", color:"var(--text-darker)"}}>
+                <Mouse_Icon width = {17} height = {17}/>
+                &nbsp;<b style = {{fontSize:20}}>Mouse Docs</b>
+            </Link>
+            <span className = "right" style = {{marginRight:70, display:"flex", alignItems:"center"}}>
+                {String(user)}
+                &nbsp;&nbsp;<Account_Dropdown/>
+            </span>
+        </div>
+        <Account_Modal user = {user}/>
+        </>
     )
 }

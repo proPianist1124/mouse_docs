@@ -1,6 +1,7 @@
 import Head from "next/head"
 
 import Navbar from "./components/navbar"
+
 import { get_user } from "./api/data"
 
 export default function New({user}:any){

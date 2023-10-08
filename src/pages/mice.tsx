@@ -4,6 +4,7 @@ import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLik
 
 import Navbar from "./components/navbar"
 import Mouse_Icon from "./components/icons/mouse"
+
 import { get_user, get_mice } from "./api/data"
 
 export default function Home({user, titles, descr}:any) {

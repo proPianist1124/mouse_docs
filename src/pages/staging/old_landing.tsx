@@ -14,14 +14,14 @@ export function Landing(){
         justifyContent:"center",
         alignItems:"center",
         border:"none",
-        color:"var(--primary-darker)"
+        color:"var(--text-darker)"
     }
 
     return (
         <>
         <div style = {{height:"100vh"}}>
             <h1 style = {{textAlign:"center", fontSize:45}} className = "header-left-right"><b>Your Friendly Neighborhood Text Editor</b></h1>
-            <p style = {{color:"var(--primary-darkest)", textAlign:"center", fontSize:20, fontStyle:"italic"}}><b>your gateway to the freedom of writing</b></p>
+            <p style = {{color:"var(--text-darkest)", textAlign:"center", fontSize:20, fontStyle:"italic"}}><b>your gateway to the freedom of writing</b></p>
             <div style = {{paddingBottom:125}}></div>
             <div className = "container">
                 <div className = "card" style = {flex_card}>
@@ -38,8 +38,8 @@ export function Landing(){
             </div>
         </div>
         <div style = {{height:"100vh"}} id = "features">
-            <h2 style = {{textAlign:"center", color:"var(--primary-darker)"}}>Why Us?</h2><br></br>
-            <div style = {{width:"100%", color:"var(--primary-darker)", display:"flex", justifyContent:"center"}}>
+            <h2 style = {{textAlign:"center", color:"var(--text-darker)"}}>Why Us?</h2><br></br>
+            <div style = {{width:"100%", color:"var(--text-darker)", display:"flex", justifyContent:"center"}}>
                 <div className = "card-hoverable" style = {{marginRight:45, height:200}}>
                     <h3>Alternative to Google Docs&nbsp;<Cheese_Icon width = {25} height = {25}/></h3>
                     The 100% more secure Docs alternative! Write your stories, ideas, our thoughts. Publish documents to the web with custom urls/expiraton dates and analytics or keep them private.
@@ -58,7 +58,7 @@ export function Landing(){
             <h2 className = "header-top-bottom" style = {{textAlign:"center"}}>
                 <span>Next.js</span>, <span>Typescript</span>, <span>Supabase</span>, <span>Resend</span>
             </h2>
-            <div className = "card" style = {{border:"none", maxWidth:700, color:"var(--primary-darker)", fontStyle:"italic"}}>
+            <div className = "card" style = {{border:"none", maxWidth:700, color:"var(--text-darker)", fontStyle:"italic"}}>
                 <h3 style = {{textAlign:"center"}}>&quot;This modern tech stack are the essentials for a successful webapp&quot;</h3>
                 <Link href = "https://propianist1124.vercel.app" target = "_blank"><h3 style = {{textAlign:"right"}}>- proPianist1124</h3></Link>
             </div>

@@ -1,0 +1,326 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* color scheme */
+:root{
+	--background:#161616;
+    --background-lighter:#212121;
+    --background-lightest:#262626;
+    --text:#f9fafc;
+    --text-darker:#c6cbd2;
+	--text-darkest:#abafb5;
+    --primary:#e6bc4c;
+    --primary-darker:#dcae31;
+    --secondary:#7f8ea3;
+	--secondary-darker:#6f7d90;
+	--secondary-darkest:#606c7c;
+	--success:#D1F4E0;
+	--success-darker:#45D483;
+	--success-darkest:#17C964;
+	--warning:#F5A524;
+	--warning-darker:#C4841D;
+	--warning-darkest:#936316;
+    --danger:#cf364c;
+    --danger-darker:#3f1f21;
+    --danger-darkest:#2b0613;
+	--link:#3291ff;
+}
+
+/* body */
+::-webkit-scrollbar {
+	display: none;
+}
+
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	background:var(--background);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment: fixed;
+    color:var(--text);
+    font-family:"Inter", sans-serif;
+	overflow-anchor:none;
+	margin:20px;
+}
+
+.header-top-bottom{
+    background: -webkit-linear-gradient(var(--text-darker), var(--secondary-darkest));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.header-left-right{
+	background: -webkit-linear-gradient(left, var(--text) , var(--secondary-darker));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+hr{
+    border:0.5px solid var(--background-bottom-lighter);
+	margin-top:15px;
+}
+
+
+input, textarea{
+    box-sizing: border-box;
+    background-color:var(--background);
+    color:var(--text-darker);
+    outline:1px solid var(--background-lighter);
+    border:none;
+    font-family:"Inter", sans-serif;
+    padding:8px 12px;
+    border-radius:7px;
+    resize:none;
+}
+input:focus, textarea:focus{
+	outline: thick double var(--background);
+	outline-color:var(--background);
+    border-color:var(--text-darker);
+}
+
+button{
+    background-color:var(--primary);
+    color:var(--background);
+    border:none;
+    font-family:"Inter", sans-serif;
+    padding:8px 12px;
+    border-radius:7px;
+    font-weight:450;
+    transition:0.3s;
+}
+button:hover{
+    cursor:pointer;
+    background-color:var(--primary-darker);
+}
+button.badge{
+	border-radius:50px;
+}
+button svg{
+	vertical-align:middle;
+}
+button.secondary{
+    color:var(--background);
+    background-color: var(--secondary);
+    border:1px solid var(--secondary-darkest);
+}
+button.secondary:hover{
+    background-color:var(--secondary-darker);
+}
+button.success{
+    color:var(--success);
+    background-color: var(--success-darkest);
+    border:1px solid var(--success-darker);
+}
+button.success:hover{
+    background-color:var(--success-darker);
+}
+button.warning{
+    color:var(--warning);
+    background-color: var(--warning-darkest);
+    border:1px solid var(--warning-darker);
+}
+button.warning:hover{
+    background-color:var(--warning-darker);
+}
+button.danger{
+    color:var(--danger);
+    background-color: var(--danger-darkest);
+    border:1px solid var(--danger-darker);
+}
+button.danger:hover{
+    background-color:var(--danger-darker);
+}
+
+a{
+	text-decoration:none;
+	color:var(--link);
+}
+a:hover{
+	text-decoration:underline;
+}
+
+a.secondary{
+	color:var(--secondary);
+}
+
+svg{
+	vertical-align:middle;
+}
+
+code{
+	padding:4px 8px;
+	border-radius:5px;
+	background-color:var(--background-bottom-lighter)
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color:var(--text-darker);
+	text-align:center;
+}
+footer a{
+	color:var(--secondary);
+	transition:0.3s;
+}
+footer a:hover{
+	text-decoration:underline;
+}
+
+div.card, div.card-hoverable{
+    margin:auto;
+    max-width:600px;
+    padding:10px 10px;
+    border-radius:10px;
+    border:1.5px solid var(--background-lighter);
+	margin-bottom:10px;
+	transition:0.3s;
+}
+div.card-hoverable:hover{
+	cursor:pointer;
+	box-shadow: 5px 5px var(--background-lighter);
+}
+
+div.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius:10px;
+    border:1.5px solid var(--background-lighter);
+	display:flex;
+	align-items:center;
+    margin-bottom:20px;
+}
+div.navbar .left, .right, .center{
+    display: block;
+    color: var(--text-darker);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	transition:0.3s;
+}
+
+div.navbar .right{
+	margin-left:auto;
+}
+div.navbar .right a{
+	text-decoration:none;
+}
+div.navbar .right a:hover{
+	text-decoration:underline;
+}
+
+div.navbar a:hover{
+	cursor:pointer;
+	text-decoration:underline;
+}
+div.navbar a svg{
+	vertical-align:middle;
+}
+
+div.navbar span.right a{
+	color:var(--text-darker);
+}
+div.navbar span.right a:hover{
+	text-decoration:none;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.5);
+	backdrop-filter: blur(5px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:var(--text);
+}
+
+.modal__window {
+    position: relative;
+    background-color: var(--background-lighter);
+	border:1px solid var(--background-lightest);
+	border-radius:10px;
+    padding: 4em 2em;
+}
+.modal__window h2.modal-label{
+	text-align:left;
+	width:600px;
+}
+
+.modal__close {
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+
+.modal:not(:target) {
+	visibility: hidden;
+	opacity: 0;
+}
+
+@media screen and (max-width: 700px) {
+	div.navbar span.hide{
+		display:none;
+	}
+	.modal__window .modal-label{
+		width:300px;
+	}
+}
+
+div.dropdown {
+	display: inline-block;
+}
+
+div.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: var(--background);
+	border:1px solid var(--background-lighter);
+	max-width: 155px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	border-radius:10px;
+	z-index: 1;
+	transition:0.3s;
+}
+
+div.dropdown-content span {
+	opacity:1;
+	padding: 12px 16px;
+	text-decoration: none;
+	border-radius:10px;
+	display: block;
+	text-align:left;
+	transition:0.3s;
+	margin-left:1px;
+	margin-right:1px;
+}
+div.dropdown-content span:hover{
+	background-color:var(--background-lighter);
+}
+div.dropdown-content span.danger{
+	color:var(--danger);
+}
+div.dropdown-content span.danger:hover{
+	background-color:var(--danger);
+	color:var(--text);
+}
+div.dropdown:hover{
+	cursor:pointer;
+}
+div.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/*nextjs-portal{
+	display:none;
+}*/

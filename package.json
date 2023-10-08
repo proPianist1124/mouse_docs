@@ -24,6 +24,7 @@
     "react-markdown": "^9.0.0",
     "react-spinners": "^0.13.8",
     "resend": "^1.1.0",
+    "sonner": "^1.0.3",
     "styled-jsx": "^5.1.2",
     "typescript": "5.1.6"
   },

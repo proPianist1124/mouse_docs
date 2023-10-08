@@ -1,12 +1,13 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
 
 import Navbar from "../components/navbar"
 import Custom404 from "../404"
 import Cheese_Icon from "../components/icons/cheese"
+
 import supabase from "../api/supabase"
 import { get_user, get_cheeses } from "../api/data"
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
 
 export default function Rat({user, cheeses, descr}:any){
     const router = useRouter()

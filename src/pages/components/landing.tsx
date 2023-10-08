@@ -21,10 +21,10 @@ export function Landing(){
         <>
         <div style = {{height:"100vh"}}>
             <div className = "header">
-                <h1 style = {{fontSize:50}}>Where <span style = {{color:"#17C964"}}>Innovation</span> Takes Flight</h1>
-                <h2 style = {{fontWeight:450}}>Your Friendly Neighborhood Hosting Service</h2>
+                <h1 style = {{fontSize:50}}>Where <span style = {{color:"var(--primary)"}}>Innovation</span> Takes Flight</h1>
+                <h2 style = {{fontWeight:450, color:"var(--text-darker)"}}>Your Friendly Neighborhood Hosting Service</h2>
             </div>
-            <div className = "card" style = {{border:"none", maxWidth:750, display:"flex", color:"var(--primary-darker)"}}>
+            <div className = "card" style = {{border:"none", maxWidth:750, display:"flex", color:"var(--text-darker)"}}>
                 <div style = {{paddingRight:50}}>
                     <Rocket_Icon/>
                 </div>
@@ -39,8 +39,8 @@ export function Landing(){
             </div>
         </div>
         <div style = {{height:"100vh"}} id = "features">
-            <h2 style = {{textAlign:"center", color:"var(--primary-darker)"}}>Why Us?</h2><br></br>
-            <div style = {{width:"100%", color:"var(--primary-darker)", display:"flex", justifyContent:"center"}}>
+            <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Why Us?</h2><br></br>
+            <div style = {{width:"100%", color:"var(--text-darker)", display:"flex", justifyContent:"center"}}>
                 <div className = "card-hoverable" style = {{marginRight:45, height:200}}>
                     <h3>Alternative to Google Docs&nbsp;<Cheese_Icon width = {25} height = {25}/></h3>
                     The 100% more secure Docs alternative! Write your stories, ideas, our thoughts. Publish documents to the web with custom urls/expiraton dates and analytics or keep them private.
@@ -55,11 +55,29 @@ export function Landing(){
                 </div>
             </div>
         </div>
+        <div style = {{height:"100vh"}} id = "pricing">
+             <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Pricing</h2><br></br>
+             <div style = {{display:"flex"}}>
+                <div className = "card">
+                    <h3>Free</h3>
+                    <h1 style = {{fontSize:50}}>$0</h1>
+                    <p>For the casual writer</p>
+                    <ul>
+                        <li>Unlimited Documents</li>
+                        <li>Unlimited Storage</li>
+                        <li>Unlimited Expirations</li>
+                        <li>Unlimited Analytics</li>
+                        <li>Unlimited Custom URLs</li>
+                    </ul>
+                    <button className = "secondary">Get Started</button>
+                </div>
+             </div>
+        </div>
         <div style = {{height:"100vh"}} id = "stack">
             <h2 className = "header-top-bottom" style = {{textAlign:"center"}}>
                 <span>Next.js</span>, <span>Typescript</span>, <span>Supabase</span>, <span>Resend</span>
             </h2>
-            <div className = "card" style = {{border:"none", maxWidth:700, color:"var(--primary-darker)", fontStyle:"italic"}}>
+            <div className = "card" style = {{border:"none", maxWidth:700, color:"var(--text-darker)", fontStyle:"italic"}}>
                 <h3 style = {{textAlign:"center"}}>&quot;This modern tech stack are the essentials for a successful webapp&quot;</h3>
                 <Link href = "https://propianist1124.vercel.app" target = "_blank"><h3 style = {{textAlign:"right"}}>- proPianist1124</h3></Link>
             </div>

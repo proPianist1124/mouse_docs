@@ -56,20 +56,47 @@ export function Landing(){
             </div>
         </div>
         <div style = {{height:"100vh"}} id = "pricing">
-             <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Pricing</h2><br></br>
-             <div style = {{display:"flex"}}>
+             <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Pricing</h2>
+             <p style = {{color:"var(--secondary)", textAlign:"center"}}>all subscriptions are one-time payments</p>
+             <br></br>
+             <div className = "card" style = {{maxWidth:1200, border:"none", display:"flex"}}>
                 <div className = "card">
-                    <h3>Free</h3>
-                    <h1 style = {{fontSize:50}}>$0</h1>
-                    <p>For the casual writer</p>
+                    <h3>Free $0</h3>
+                    <i>For the causal writer</i>
                     <ul>
-                        <li>Unlimited Documents</li>
-                        <li>Unlimited Storage</li>
-                        <li>Unlimited Expirations</li>
-                        <li>Unlimited Analytics</li>
-                        <li>Unlimited Custom URLs</li>
+                        <li>Unlimited Mice & Cheese</li>
+                        <li>1 Public Cheese</li>
+                        <li>1 Locked Cheese</li>
                     </ul>
-                    <button className = "secondary">Get Started</button>
+                    <button className = "secondary">Buy Now</button>
+                </div>
+                <div className = "card">
+                    <h3>Pro $15 / <span style = {{color:"#CF85EA"}}>1 Month Nitro</span></h3>
+                    <i>For the causal writer</i>
+                    <ul>
+                        <li>Unlimited Mice & Cheese</li>
+                        <li>Unlimited Public Cheeses</li>
+                        <li>Unlimited Locked Cheeses</li>
+                        <li>Custom Analytics</li>
+                        <li>Custom Shorteners</li>
+                        <li>1 Auto Self Destruct Cheese</li>
+                    </ul>
+                    <button className = "secondary" style = {{color:"var(--primary-darker)"}}><b>Most Popular</b></button>
+                </div>
+                <div className = "card">
+                    <h3>Enterprise $50</h3>
+                    <i>For the causal writer</i>
+                    <ul>
+                    <li>Unlimited Mice & Cheese</li>
+                        <li>Unlimited Public Cheeses</li>
+                        <li>Unlimited Locked Cheeses</li>
+                        <li>Unlimited Auto Self Destruct Cheeses</li>
+                        <li>Unlimited Team Members</li>
+                        <li>Custom Analytics</li>
+                        <li>Custom Shorteners</li>
+                        <li>Custom Organization</li>
+                    </ul>
+                    <button className = "secondary">Buy Now</button>
                 </div>
              </div>
         </div>

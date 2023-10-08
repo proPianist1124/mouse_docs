@@ -30,17 +30,17 @@ export default function App({ Component, pageProps }: AppProps) {
       <meta property="og:url" content="https://mouse-docs.obl.ong/" />
       <meta property="og:title" content="Your Text Editor - Mouse Docs" />
       <meta property="og:description" content="The open-source Google Docs alternative! Sign up for free today!" />
-      <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
-      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="og:image" content="https://mouse-docs.obl.ong/favicon.ico" />
+      <meta property="twitter:card" content="https://mouse-docs.obl.ong/favicon.ico" />
       <meta property="twitter:url" content="https://mouse-docs.obl.ong/" />
       <meta property="twitter:title" content="Your Text Editor - Mouse Docs" />
       <meta property="twitter:description" content="The open-source Google Docs alternative! Sign up for free today!" />
-      <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+      <meta property="twitter:image" content="https://mouse-docs.obl.ong/favicon.ico" />
     </Head>
     <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyemytgtv/image/upload/v1696728813/Screenshot_2023-10-07_at_6.30.56_PM_rg1rnl.png"></link>
     {loading ? 
       <div style = {centered}>
-        <Loader size = {30} color = {"#fff"} loading = {loading}/>
+        <Loader size = {30} color = {"var(--primary)"} loading = {loading}/>
       </div>
       :
       <main>
@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Toaster richColors/>
         <div style = {{paddingBottom:200}}></div>
         <footer>
-          By <Link href = "https://propianist1124.vercel.app" target = "_blank">proPianist1124</Link>
+          <Link href = "https://twitter.com/mousedocs" target = "_blank">Follow us on &#120143;</Link>
         </footer>
       </main>}
     </>

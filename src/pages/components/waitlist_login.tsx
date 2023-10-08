@@ -14,7 +14,7 @@ function Waitlist(){
         <h2 style = {{textAlign:"center"}}><Mouse_Icon width = {25} height = {25}/> Mouse Docs</h2>
         <br></br>
         <div className = "card" style = {{border:"none", display:"flex", alignItems:"center", justifyContent:"center"}}>
-            Join the Beta waitlist!&nbsp;&nbsp;
+            Join the Waitlist!&nbsp;&nbsp;
            <form action = "/api/routes/waitlist" method = "POST" style = {{display:"flex"}}>
             <input name = "email" autoComplete = "off" placeholder = "john.doe@gmail.com" type = "email"/>
             &nbsp;
@@ -57,7 +57,6 @@ function Login(){
         if(user.current.value == "" || password.current.value == ""){
             setMessage("Please provide a username and password")
         }else{
-            //const { data: exists }:any = await supabase.from("users").select("username").eq("username", user.current.value)
             if(await get_user(user.current.value) != null){
                 if(await get_password(user.current.value) == password.current.value){
                     const { data: email }:any = await supabase.from("users").select("email").eq("username", user.current.value)

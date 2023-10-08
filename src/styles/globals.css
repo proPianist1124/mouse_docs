@@ -59,7 +59,7 @@ body{
 }
 
 hr{
-    border:0.5px solid var(--background-bottom-lighter);
+    border:0.5px solid var(--background-lightest);
 	margin-top:15px;
 }
 
@@ -76,9 +76,8 @@ input, textarea{
     resize:none;
 }
 input:focus, textarea:focus{
-	outline: thick double var(--background);
-	outline-color:var(--background);
-    border-color:var(--text-darker);
+	outline: thick double var(--background-lighter);
+	outline-color:var(--background-lighter);
 }
 
 button{
@@ -102,12 +101,12 @@ button svg{
 	vertical-align:middle;
 }
 button.secondary{
-    color:var(--background);
-    background-color: var(--secondary);
-    border:1px solid var(--secondary-darkest);
+    color:var(--text-darker);
+    background-color: var(--background-lighter);
+    border:1px solid var(--background-lightest);
 }
 button.secondary:hover{
-    background-color:var(--secondary-darker);
+    background-color:var(--background);
 }
 button.success{
     color:var(--success);
@@ -153,7 +152,7 @@ svg{
 code{
 	padding:4px 8px;
 	border-radius:5px;
-	background-color:var(--background-bottom-lighter)
+	background-color:var(--background-lightest)
 }
 
 footer {
@@ -162,6 +161,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	color:var(--text-darker);
+    background-color:var(--background);
 	text-align:center;
 }
 footer a{

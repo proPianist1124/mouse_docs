@@ -34,12 +34,12 @@ export default function Navbar({user}:any){
     return(
         <>
         <div className = "navbar">
-            <Link href = "/" className = "left" style = {{display:"flex", alignItems:"center", color:"var(--text-darker)"}}>
+            <Link href = "/" className = "left" style = {{display:"flex", alignItems:"center"}}>
                 <Mouse_Icon width = {17} height = {17}/>
                 &nbsp;<b style = {{fontSize:20}}>Mouse Docs</b>
             </Link>
             <span className = "right" style = {{marginRight:70, display:"flex", alignItems:"center"}}>
-                {String(user)}
+                <Link href = "/">{String(user)}</Link>
                 &nbsp;&nbsp;<Account_Dropdown/>
             </span>
         </div>

@@ -21,8 +21,8 @@ export function Landing(){
         <>
         <div style = {{height:"100vh"}}>
             <div className = "header">
-                <h1 style = {{fontSize:50}}>Where <span style = {{color:"var(--primary)"}}>Innovation</span> Takes Flight</h1>
-                <h2 style = {{fontWeight:450, color:"var(--text-darker)"}}>Your Friendly Neighborhood Hosting Service</h2>
+                <h1 style = {{fontSize:50, color:"var(--text-darker)"}}>Where <span style = {{color:"var(--primary)"}}>Innovation</span> Takes Flight</h1>
+                <h2 style = {{fontWeight:450, color:"var(--secondary)"}}>Supercharge your productivity with us</h2>
             </div>
             <div className = "card" style = {{border:"none", maxWidth:750, display:"flex", color:"var(--text-darker)"}}>
                 <div style = {{paddingRight:50}}>
@@ -31,7 +31,7 @@ export function Landing(){
                 <p>
                     Mouse Docs is an open-source, online word processor. Aiming to be intuitive, secure, and versatile, this is the gateway to your freedom of writing.
                     <br></br><br></br>
-                    <Link href = "/about"><button style = {{borderRadius:50}}>About Us</button></Link> <button style = {{borderRadius:50}} className = "secondary">Pricing</button>
+                    <Link href = "/docs"><button style = {{borderRadius:50}}>Getting Started</button></Link> <Link href = "#pricing"><button style = {{borderRadius:50}} className = "secondary">Pricing</button></Link>
                 </p>
             </div>
             <div style = {{display:"flex", justifyContent:"center", paddingTop:100}}>
@@ -39,7 +39,8 @@ export function Landing(){
             </div>
         </div>
         <div style = {{height:"100vh"}} id = "features">
-            <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Why Us?</h2><br></br>
+            <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Why Us?</h2>
+            <p style = {{color:"var(--secondary)", textAlign:"center"}}>cus we&apos;re the best…just kidding</p>
             <div style = {{width:"100%", color:"var(--text-darker)", display:"flex", justifyContent:"center"}}>
                 <div className = "card-hoverable" style = {{marginRight:45, height:200}}>
                     <h3>Alternative to Google Docs&nbsp;<Cheese_Icon width = {25} height = {25}/></h3>
@@ -47,7 +48,7 @@ export function Landing(){
                 </div>
                 <div className = "card-hoverable" style = {{height:200}}>
                     <h3>Easily Customizable&nbsp;<Code_Icon width = {25} height = {25}/></h3>
-                    Because this is an open source project, you can easily customize the styling and code to your preference by cloning our repo! Make Mouse Docs <i>yours</i>.
+                    Because this is an open source project, you can easily customize the CSS variables and make code tweaks by cloning our repo! Make Mouse Docs <i>yours</i>.
                 </div>
                 <div className = "card-hoverable" style = {{marginLeft:45, height:200}}>
                     <h3>Hosting Like Never Before&nbsp;<Laptop_Icon width = {25} height = {25}/></h3>
@@ -58,11 +59,10 @@ export function Landing(){
         <div style = {{height:"100vh"}} id = "pricing">
              <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Pricing</h2>
              <p style = {{color:"var(--secondary)", textAlign:"center"}}>all subscriptions are one-time payments</p>
-             <br></br>
-             <div className = "card" style = {{maxWidth:1200, border:"none", display:"flex"}}>
+             <div style = {{width:"100%", display:"flex"}}>
                 <div className = "card">
                     <h3>Free $0</h3>
-                    <i>For the causal writer</i>
+                    <i style = {{color:"var(--text-darker)"}}>For the causal writer</i>
                     <ul>
                         <li>Unlimited Mice & Cheese</li>
                         <li>1 Public Cheese</li>
@@ -70,24 +70,23 @@ export function Landing(){
                     </ul>
                     <button className = "secondary">Buy Now</button>
                 </div>
-                <div className = "card">
-                    <h3>Pro $15 / <span style = {{color:"#CF85EA"}}>1 Month Nitro</span></h3>
-                    <i>For the causal writer</i>
+                <div className = "card" style = {{borderColor:"var(--primary-darker)"}}>
+                    <h3 style = {{color:"var(--primary-darker)"}}>Pro $15 / <span style = {{color:"#CF85EA"}}>1 Month Nitro</span></h3>
+                    <i style = {{color:"var(--text-darker)"}}>For the causal writer</i>
                     <ul>
                         <li>Unlimited Mice & Cheese</li>
                         <li>Unlimited Public Cheeses</li>
                         <li>Unlimited Locked Cheeses</li>
                         <li>Custom Analytics</li>
                         <li>Custom Shorteners</li>
-                        <li>1 Auto Self Destruct Cheese</li>
                     </ul>
-                    <button className = "secondary" style = {{color:"var(--primary-darker)"}}><b>Most Popular</b></button>
+                    <Link href = "https://discord.com/users/844689790075011083"><button className = "secondary" style = {{color:"var(--primary-darker)"}}><b>Most Popular</b></button></Link>
                 </div>
                 <div className = "card">
                     <h3>Enterprise $50</h3>
-                    <i>For the causal writer</i>
+                    <i style = {{color:"var(--text-darker)"}}>For the causal writer</i>
                     <ul>
-                    <li>Unlimited Mice & Cheese</li>
+                        <li>Unlimited Mice & Cheese</li>
                         <li>Unlimited Public Cheeses</li>
                         <li>Unlimited Locked Cheeses</li>
                         <li>Unlimited Auto Self Destruct Cheeses</li>
@@ -101,13 +100,11 @@ export function Landing(){
              </div>
         </div>
         <div style = {{height:"100vh"}} id = "stack">
-            <h2 className = "header-top-bottom" style = {{textAlign:"center"}}>
+            <h2 style = {{textAlign:"center", color:"var(--primary)"}}>Stack</h2>
+            <p style = {{color:"var(--secondary)", textAlign:"center"}}>the stack we used for this project!</p>
+            <h1 className = "header-top-bottom" style = {{textAlign:"center"}}>
                 <span>Next.js</span>, <span>Typescript</span>, <span>Supabase</span>, <span>Resend</span>
-            </h2>
-            <div className = "card" style = {{border:"none", maxWidth:700, color:"var(--text-darker)", fontStyle:"italic"}}>
-                <h3 style = {{textAlign:"center"}}>&quot;This modern tech stack are the essentials for a successful webapp&quot;</h3>
-                <Link href = "https://propianist1124.vercel.app" target = "_blank"><h3 style = {{textAlign:"right"}}>- proPianist1124</h3></Link>
-            </div>
+            </h1>
         </div>
         <style jsx>{`
             div.card-hoverable{

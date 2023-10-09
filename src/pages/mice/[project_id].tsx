@@ -23,14 +23,13 @@ export default function Rat({user, cheeses, descr}:any){
         </Head>
         <Navbar user = {user}/>
         <div className = "card" style = {{border:"none"}}>
-            <b>Mouse: </b> {router.query.project_id}
+            <span style = {{color:"var(--primary)"}}><b>Mouse: </b> {router.query.project_id}</span>
             <span style = {{color:"var(--secondary)", float:"right"}}>{descr}</span>
         </div>
         <div className = "card">
             <p style = {{color:"var(--secondary)"}}>
                 &nbsp;Cheeses <Cheese_Icon width = {20} height = {20}/>
             </p>
-            <br></br>
             {cheeses.map((cheese: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined) =>
                 <div className = "card-hoverable" key = {String(cheese)} onClick = {() => router.push(`/mice/${router.query.project_id}/${cheese}`)}>
                     {cheese}

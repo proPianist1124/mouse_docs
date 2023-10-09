@@ -109,7 +109,7 @@ button.secondary:hover{
     background-color:var(--background);
 }
 button.success{
-    color:var(--success);
+    color:var(--background);
     background-color: var(--success-darkest);
     border:1px solid var(--success-darker);
 }
@@ -117,7 +117,7 @@ button.success:hover{
     background-color:var(--success-darker);
 }
 button.warning{
-    color:var(--warning);
+    color:var(--text-darker);
     background-color: var(--warning-darkest);
     border:1px solid var(--warning-darker);
 }
@@ -193,6 +193,7 @@ div.navbar {
     overflow: hidden;
     border-radius:10px;
     border:1.5px solid var(--background-lighter);
+	color:var(--text-darker);
 	display:flex;
 	align-items:center;
     margin-bottom:20px;
@@ -210,25 +211,20 @@ div.navbar .right{
 	margin-left:auto;
 }
 div.navbar .right a{
-	text-decoration:none;
+	color:var(--text-darker);
+	transition:0.2s;
 }
 div.navbar .right a:hover{
-	text-decoration:underline;
+	color:var(--text-darkest);
+	text-decoration:none;
 }
 
 div.navbar a:hover{
 	cursor:pointer;
-	text-decoration:underline;
+	color:var(--text-darkest);
 }
 div.navbar a svg{
 	vertical-align:middle;
-}
-
-div.navbar span.right a{
-	color:var(--text-darker);
-}
-div.navbar span.right a:hover{
-	text-decoration:none;
 }
 
 .modal {

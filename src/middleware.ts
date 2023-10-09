@@ -2,9 +2,11 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { get_user } from "./pages/api/data"
  
-// Custom middleware for protection
+// Custom middleware for route protection
+
 export async function middleware(req: NextRequest) {
     let user:any = req.cookies.get("sid")
+    
     if(user == undefined){
         return NextResponse.rewrite(new URL("/auth", req.url))
     }else{

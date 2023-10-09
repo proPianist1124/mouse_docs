@@ -30,7 +30,6 @@ function Waitlist(){
 function Login(){
     const router = useRouter()
     let [ message, setMessage ]:any = useState("")
-    let [ loading, setLoading ]:any = useState("Login")
 
     const user:any = useRef()
     const password:any = useRef()
@@ -62,14 +61,11 @@ function Login(){
                     const { data: email }:any = await supabase.from("users").select("email").eq("username", user.current.value)
                     const { data:sid }:any = await supabase.from("users").select("sid").eq("username", user.current.value)
 
-                    setLoading("Logging in...")
+                    toast.success("Logged In!")
                     setTimeout(() => {
-                        toast.success("Logged In!")
-                        setTimeout(() => {
-                            Cookies.set("sid", sid[0].sid)
-                            //router.push(`/api/email/send?to=${email[0].email}&subject=Suspicious&content=There%20was%20suspicious%20login%20activity%20from%20your%20account%2C%20%3Cb%3E${user.current.value}%3C/b%3E`)
-                            router.push("/")
-                        }, 1500)
+                        Cookies.set("sid", sid[0].sid)
+                        //router.push(`/api/email/send?to=${email[0].email}&subject=Suspicious&content=There%20was%20suspicious%20login%20activity%20from%20your%20account%2C%20%3Cb%3E${user.current.value}%3C/b%3E`)
+                        router.push("/")
                     }, 1000)
                 }else{
                     setMessage("Invalid credentials")
@@ -85,13 +81,13 @@ function Login(){
         <div className = "card">
             <h2 style = {{textAlign:"center"}}>Login to Mouse Docs</h2>
             <br></br>
-            <p>Username</p>
+            <p>Email</p>
             <input autoComplete = "off" ref = {user} style = {{width:"100%"}}/>
             <p>Password</p>
             <input type = "password" ref = {password} style = {{width:"100%"}}/>
             <p ref = {error} style = {{color:"var(--danger)"}}>{message}</p>
             <br></br>
-            <button onClick = {login} style = {{width:"100%"}}>{loading}</button>
+            <button onClick = {login} style = {{width:"100%"}}>Login</button>
         </div>
         </>
     )

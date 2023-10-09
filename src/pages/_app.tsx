@@ -20,10 +20,10 @@ export default function App({ Component, pageProps }: AppProps) {
     display:"flex", alignItems:"center", justifyContent:"center", height:"500px"
   }
 
+  const description = "The open-source Google Docs alternative! Sign up for free today!"
   return (
     <>
     <Head>
-      <title>Your Text Editor - Mouse Docs</title>
       <meta name="title" content="Your Text Editor - Mouse Docs" />
       <meta name="description" content="The open-source Google Docs alternative! Sign up for free today!" />
       <meta property="og:type" content="website" />
@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Toaster richColors/>
         <div style = {{paddingBottom:200}}></div>
         <footer>
-          <Link href = "https://twitter.com/mousedocs" target = "_blank">Follow us on &#120143;</Link>
+          <Link href = "https://twitter.com/mousedocs" target = "_blank">Support us on &#120143;</Link>
         </footer>
       </main>}
     </>

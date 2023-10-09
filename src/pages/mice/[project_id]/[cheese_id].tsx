@@ -1,7 +1,7 @@
 import Head from "next/head"
-import Link from "next/link"
 import { useRouter } from "next/router"
 import { useRef, useState } from "react"
+import Markdown from "react-markdown"
 
 import Navbar from "../../components/navbar"
 import Custom404 from "../../404"
@@ -29,12 +29,14 @@ export default function Cheese({user, exists, file_titles, file_content, fonts}:
     const [ fontSize, setFontSize ]:any = useState(16)
     const [ textAlign, setTextAlign ]:any = useState("left")
     const [ fontFamily, setFontFamily ]:any = useState("Arial")
+    const [ area, setArea]:any = useState(true)
 
     if(exists == false){
         return <Custom404/>
     }
     const cheese = String(router.query.cheese_id).replace("_", " ")
 
+    // autosaving changes in document
     async function title_change(){
         file_titles[file_titles.indexOf(router.query.cheese_id)] = `${cheese.split(" ")[0]}_${title.current.value}`
 
@@ -45,6 +47,24 @@ export default function Cheese({user, exists, file_titles, file_content, fonts}:
         file_content[file_titles.indexOf(router.query.cheese_id)] = content.current.value
         await supabase.from("mice").update({ file_content }).eq("title", router.query.project_id).eq("author", user)
     }
+
+    // font style changes
+    function add_bold(){
+        const e:any = document.getElementById("content")
+        const f = e.selectionEnd
+
+        let newArray:any = []
+        for(let i = 0; i < e.value.length; i++){
+            if(i == f){
+                newArray.push(`${e.value[f]} **** `)
+            }else{
+                newArray.push(e.value[i])
+            }
+        }
+        console.log(newArray.join(""))
+        e.value = newArray.join("")
+    }
+    
     return (
         <>
         <Head>
@@ -54,23 +74,27 @@ export default function Cheese({user, exists, file_titles, file_content, fonts}:
         <br></br>
         <div style = {{display:"flex"}}>
             <a href = "#config"><button><Mouse_Icon width = {16} height = {16}/></button></a>
-            <input style = {{width:"100%"}} defaultValue = {cheese.split(" ")[1]} ref = {title} onBlur = {title_change}/>
+            <input style = {{width:"100%"}} defaultValue = {cheese.replace(cheese.split(" ")[0], "")} ref = {title} onBlur = {title_change}/>
+            <button className = "success" onClick = {() => setArea(!area)}>
+                {area ? "Preview" : "Edit"}
+            </button>
         </div>
         <br></br>
         <div className = "card" style = {{maxWidth:"100%", display:"flex", alignItems:"center", border:"none"}}>
-            <button><Bold_Icon width = {16} height = {16}/></button>
-            &nbsp;<button><Italic_Icon width = {16} height = {16}/></button>
+            <button className = "secondary" onClick = {add_bold}><Bold_Icon width = {16} height = {16}/></button>
+            &nbsp;<button className = "secondary" onClick = {() => content.current.value += "**"}><Italic_Icon width = {16} height = {16}/></button>
             <ToolBar_Spacer/>
-            &nbsp;<button onClick = {() => setFontSize(fontSize+1)}><Plus_Icon width = {16} height = {16}/></button>
+            &nbsp;<button className = "secondary" onClick = {() => setFontSize(fontSize+1)}><Plus_Icon width = {16} height = {16}/></button>
             &nbsp;<span style = {{color:"var(--text-darkest)"}}>{fontSize}</span>
-            &nbsp;<button onClick = {() => setFontSize(fontSize-1)}><Minus_Icon width = {16} height = {16}/></button>
+            &nbsp;<button className = "secondary" onClick = {() => setFontSize(fontSize-1)}><Minus_Icon width = {16} height = {16}/></button>
             <ToolBar_Spacer/>
-            &nbsp;<button onClick = {() => setTextAlign("left")}><AlignLeft_Icon width = {16} height = {16}/></button>
-            &nbsp;<button onClick = {() => setTextAlign("center")}><AlignCenter_Icon width = {16} height = {16}/></button>
-            &nbsp;<button onClick = {() => setTextAlign("right")}><AlignRight_Icon width = {16} height = {16}/></button>
+            &nbsp;<button className = "secondary" onClick = {() => setTextAlign("left")}><AlignLeft_Icon width = {16} height = {16}/></button>
+            &nbsp;<button className = "secondary" onClick = {() => setTextAlign("center")}><AlignCenter_Icon width = {16} height = {16}/></button>
+            &nbsp;<button className = "secondary" onClick = {() => setTextAlign("right")}><AlignRight_Icon width = {16} height = {16}/></button>
             <ToolBar_Spacer/>
-            &nbsp;<div className = "dropdown">
-                <span><button>{fontFamily}</button></span>
+            &nbsp;
+            <div className = "dropdown">
+                <span><button className = "secondary">{fontFamily}</button></span>
                 <div className = "dropdown-content">
                     <span>Arial</span>
                     <span onClick = {() => setFontFamily("Courier")}>Courier</span>
@@ -80,7 +104,17 @@ export default function Cheese({user, exists, file_titles, file_content, fonts}:
                 </div>
             </div>
         </div>
-        <textarea style = {{width:"100%", height:"70vh", outline:"none", border:"1px solid var(--background-lightest)", fontSize, textAlign, fontFamily}} autoComplete = "off" ref = {content} placeholder = "let your imagination run wild…" onChange = {content_change} defaultValue = {file_content[file_titles.indexOf(router.query.cheese_id)]}></textarea>
+       { area ? 
+        <>
+        <textarea style = {{width:"100%", height:"70vh", outline:"none", border:"1px solid var(--background-lightest)", fontSize, textAlign, fontFamily}} autoComplete = "off" ref = {content} id = "content" placeholder = "let your imagination run wild…" onChange = {content_change} defaultValue = {file_content[file_titles.indexOf(router.query.cheese_id)]}></textarea>
+        <p style = {{color:"var(--secondary)", fontStyle:"italic"}}>Cheese supports markdown</p>
+        </>
+        :
+        <div className = "card">
+            <Markdown>
+                {content.current.value}
+            </Markdown>
+        </div> }
         <Cheese_Modal/>
         </>
     )

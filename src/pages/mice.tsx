@@ -18,8 +18,7 @@ export default function Home({user, titles, descr}:any) {
     <Navbar user = {user}/>
     <div className = "card">
       <h3 style = {{display:"flex", alignItems:"center", justifyContent:"center"}}>
-        <Mouse_Icon width = {22} height = {22}/>
-        &nbsp;My Mice
+        <Mouse_Icon width = {22} height = {22}/>&nbsp;My Mice
       </h3>
       <br></br>
       {titles.map((title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined) =>
